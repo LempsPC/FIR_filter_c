@@ -1,0 +1,13 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/lembitu.valdmets/FIR_filter_c
+sfir_tester
+st_mux
+R0
