@@ -88,15 +88,15 @@ SC_MODULE(fir)
         sensitive << CLK.pos();
 
         SC_METHOD (prc_add1);
-        sensitive << del_1 << del_7 << data_in_bf << del_8 << reg1 << reg2 << reg4 << state;
+        sensitive << del_2 << del_6 << reg1 << reg2 << reg3 << state;
         
         SC_METHOD (prc_add2);
-        sensitive << del_2 << del_6 << del_4 << reg1 << state;
+        sensitive << del_3 << del_5 << reg2 << state;
         
         SC_METHOD (prc_addsub3);
-        sensitive << del_3 << del_5 << reg3 << state;
+        sensitive << del_4 << reg3 << reg4 << state;
         
         SC_METHOD (prc_sub4);
-        sensitive << reg2 << reg3 << reg4 << state;
+        sensitive << data_in_bf << del_8 << del_1 << del_7 << state;
     }
 };

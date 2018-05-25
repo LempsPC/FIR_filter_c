@@ -70,7 +70,7 @@ void fir::prc_inout_buf()
 
         if(state.read() == S0)
         {
-            data_out.write (reg1.read());
+            //data_out.write (reg1.read());
             data_in_bf.write (data_in.read());
         }
     }
@@ -116,27 +116,31 @@ void fir::prc_add1()
     switch (state.read())
     {
         case S0: // "00"
-            op1 = del_1.read();
-            op2 = del_7.read();
+            op1 = del_2.read();
+            op2 = del_6.read();
             break;
             
         case S1:  // "01"
-            op1 = data_in_bf.read();
-            op2 = del_8.read();
+            op1 = reg1.read();
+            op2 = asr3(reg1.read());
             break;
             
         case S2:  // "10"
-            op1 = asr3(reg1.read());
+            op1 = reg1.read();
             op2 = reg2.read();
             break;
             
         case S3:  // "11"
             op1 = reg1.read();
-            op2 = reg4.read();
+            op2 = reg3.read();
             break;
     }
     
     add1_out.write (op1 + op2);
+    if(state.read() ==S0)
+    {
+        data_out.write (add1_out.read());
+    }
 }
 
 void fir::prc_add2()
@@ -146,13 +150,13 @@ void fir::prc_add2()
     switch (state.read())
     {
         case S0: // "00"
-            op1 = del_2.read();
-            op2 = del_6.read();
+            op1 = del_3.read();
+            op2 = del_5.read();
             break;
             
         case S1:  // "01"
-            op1 = del_4.read();
-            op2 = asr2(reg1.read());
+            op1 = reg2.read();
+            op2 = asr2(reg2.read());
             break;
             
         case S2:  // "10"
@@ -176,18 +180,18 @@ void fir::prc_addsub3()
     switch (state.read())
     {
         case S0: // "00"
-            op1 = del_3.read();
-            op2 = del_5.read();
+            op1 = del_4.read();
+            op2 = asr2(del_4.read());
             break;
             
         case S1:  // "01"
             op1 = reg3.read();
-            op2 = asr2(reg3.read());
+            op2 = asr2(reg4.read());
             break;
             
         case S2:  // "10"
-            op1 = DONT_CARE;
-            op2 = DONT_CARE;
+            op1 = reg3.read();
+            op2 = asr2(reg4.read());
             break;
             
         case S3:  // "11"
@@ -196,7 +200,15 @@ void fir::prc_addsub3()
             break;
     }
     
-    addsub3_out.write (op1 + op2);
+    
+    if(state.read() ==S2)
+    {
+        addsub3_out.write (op1 - op2);
+    }
+    else
+    {
+        addsub3_out.write (op1 + op2);
+    }
 }
 
 
@@ -207,18 +219,18 @@ void fir::prc_sub4()
     switch (state.read())
     {
         case S0: // "00"
-            op1 = DONT_CARE;
-            op2 = DONT_CARE;
+            op1 = data_in.read();
+            op2 = del_8.read();
             break;
             
         case S1:  // "01"
-            op1 = reg2.read();
-            op2 = asr2(reg2.read());
+            op1 = del_1.read();
+            op2 = del_7.read();
             break;
             
         case S2:  // "10"
-            op1 = reg3.read();
-            op2 = reg4.read();
+            op1 = DONT_CARE;
+            op2 = DONT_CARE;
             break;
             
         case S3:  // "11"
@@ -227,7 +239,7 @@ void fir::prc_sub4()
             break;
     }
     
-    sub4_out.write (op1 - op2);
+    sub4_out.write (op1 + op2);
 }
 
 

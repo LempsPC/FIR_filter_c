@@ -37,10 +37,10 @@ void fir_tester::proc_clk()
 {
     while (1)
     {
-        CLK.write (false);
+        CLK.write (true);
         wait (10,SC_NS);
         
-        CLK.write (true);
+        CLK.write (false);
         wait (10,SC_NS);
     }
 }
@@ -60,7 +60,7 @@ void fir_tester::stimuli()
 {
     while(1)
     {
-        wait(240,SC_NS);
+        wait(780,SC_NS);
         data_in.write(1);
         wait(80,SC_NS);
         data_in.write(0);

@@ -35,7 +35,7 @@ S0;reg3;2;6296;fir_rtl_tester.dbs;T5;F1;L44
 S0;reg4;2;6720;fir_rtl_tester.dbs;T5;F1;L44
 S0;add1_out;2;7144;fir_rtl_tester.dbs;T5;F1;L45
 S0;add2_out;2;7568;fir_rtl_tester.dbs;T5;F1;L45
-S0;add3_out;2;7992;fir_rtl_tester.dbs;T5;F1;L45
+S0;addsub3_out;2;7992;fir_rtl_tester.dbs;T5;F1;L45
 S0;sub4_out;2;8416;fir_rtl_tester.dbs;T5;F1;L45
 N0;asr3;(sc_dt::sc_fixed<16, 6, sc_dt::SC_TRN, sc_dt::SC_WRAP, 0>);fir_rtl_tester.dbs;F1;L50
 N0;asr2;(sc_dt::sc_fixed<16, 6, sc_dt::SC_TRN, sc_dt::SC_WRAP, 0>);fir_rtl_tester.dbs;F1;L55
@@ -45,9 +45,9 @@ N0;prc_inout_buf;();fir_rtl_design_3.dbs;F2;L66
 N0;prc_data_reg;();fir_rtl_design_3.dbs;F2;L80
 N0;prc_shift_reg;();fir_rtl_design_3.dbs;F2;L93
 N0;prc_add1;();fir_rtl_design_3.dbs;F2;L113
-N0;prc_add2;();fir_rtl_design_3.dbs;F2;L143
-N0;prc_add3;();fir_rtl_design_3.dbs;F2;L173
-N0;prc_sub4;();fir_rtl_design_3.dbs;F2;L204
+N0;prc_add2;();fir_rtl_design_3.dbs;F2;L147
+N0;prc_addsub3;();fir_rtl_design_3.dbs;F2;L177
+N0;prc_sub4;();fir_rtl_design_3.dbs;F2;L216
 N0;fir;(sc_core::sc_module_name);fir_rtl_tester.dbs;F1;L74
 
 M8;fir_tester;19;13440;1344;1344;0;0;fir_rtl_tester.dbs;F0;L6
